@@ -1,0 +1,66 @@
+/* Admin panel styles */
+.admin-panel {
+    background: #f0f2f5;
+}
+body {
+    overflow-x: hidden;
+}
+
+.sidebar {
+    width: 260px;
+    transition: 0.4s;
+}
+
+.sidebar a {
+    font-size: 16px;
+}
+.nav-link:hover {
+    background-color: #0d6efd;
+    border-radius: 6px;
+    transition: background 0.2s ease-in-out;
+}
+
+.sidebar-title {
+    color: #00d4ff; /* Sky Blue Accent */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 15px 0 8px 0;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile Sidebar */
+@media(max-width: 992px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        height: 100vh;
+        z-index: 999;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    #content-area {
+        width: 100%;
+    }
+}
+
+/* Background overlay */
+#overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.55);
+    top: 0;
+    left: 0;
+    z-index: 998;
+}
+
+#overlay.active {
+    display: block;
+}

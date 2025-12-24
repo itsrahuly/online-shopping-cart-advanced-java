@@ -1,0 +1,102 @@
+CREATE DATABASE onlineshopping;
+USE onlineshopping;
+
+CREATE TABLE admin (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  phone VARCHAR(15),
+  address TEXT,
+  role VARCHAR(20) DEFAULT 'Customer',
+  status VARCHAR(20) DEFAULT 'Active'
+);
+
+CREATE TABLE products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  brand VARCHAR(200),
+  category VARCHAR(200),
+  subcategory VARCHAR(200),
+  sku VARCHAR(200),
+  price DOUBLE NOT NULL,
+  discount_price DOUBLE,
+  quantity INT DEFAULT 0,
+  description TEXT,
+  specifications TEXT,
+  image1 VARCHAR(255),
+  image2 VARCHAR(255),
+  image3 VARCHAR(255),
+  status VARCHAR(20) DEFAULT 'Active',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE cart (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  product_id INT,
+  quantity INT DEFAULT 1
+);
+
+CREATE TABLE orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  total_amount DOUBLE,
+  status VARCHAR(50) DEFAULT 'Pending',
+  order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  fullname VARCHAR(200),
+  phone VARCHAR(20),
+  address VARCHAR(500),
+  payment_method VARCHAR(50),
+  upi_id VARCHAR(100),
+  card_number VARCHAR(20)
+);
+
+CREATE TABLE order_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_id INT,
+  product_id INT,
+  quantity INT,
+  price DOUBLE,
+  image VARCHAR(255)
+);
+
+CREATE TABLE bank_upi (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  upi_id VARCHAR(100),
+  balance INT
+);
+
+CREATE TABLE card_details (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  card_number VARCHAR(20) UNIQUE NOT NULL,
+  holder_name VARCHAR(100) NOT NULL,
+  exp_month VARCHAR(2) NOT NULL,
+  exp_year VARCHAR(4) NOT NULL,
+  cvv VARCHAR(3) NOT NULL
+);
+
+CREATE TABLE bank_card (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  card_number VARCHAR(20),
+  holder_name VARCHAR(100),
+  exp_month VARCHAR(2),
+  exp_year VARCHAR(4),
+  cvv VARCHAR(3),
+  balance INT
+);
+
+CREATE TABLE bank_account (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  card_number VARCHAR(20) UNIQUE NOT NULL,
+  holder_name VARCHAR(100) NOT NULL,
+  balance INT NOT NULL
+);
+
+
