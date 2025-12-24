@@ -1,2 +1,13 @@
-# online-shopping-cart-advanced-java
-A dynamic Online Shopping Cart Web Application built using Advanced Java (JSP, Servlets, JDBC) following MVC architecture. Includes user &amp; admin modules, cart management, secure checkout flow, session handling, and MySQL database integration.
+## Online Shopping Cart System – Advanced Java
+
+This project is a dynamic e-commerce web application developed using Advanced Java technologies.
+It follows the MVC architecture and demonstrates real-world implementation of JSP, Servlets, JDBC, 
+session management, and database connectivity.
+
+### Technologies Used
+- Java (Core & Advanced)
+- JSP & Servlets
+- JDBC
+- MySQL
+- Apache Tomcat
+- MVC Architecture
